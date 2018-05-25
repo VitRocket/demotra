@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/head :: head"/>
+
+<body>
+
+<div id="wrap">
+    <div th:replace="fragments/navbar :: navbar"/>
+
+    <div class="container">
+        <div class="page-header">
+            <h1>Accounts</h1>
+            <p th:utext="${controller}">...</p>
+            <p th:utext="${service}">...</p>
+        </div>
+        <a href="/account/add">Add Account</a>
+        <div>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="account : ${accounts}">
+                    <td th:utext="${account.id}">...</td>
+                    <td th:utext="${account.name}">...</td>
+                    <td th:utext="${account.email}">...</td>
+                    <td><a th:href="@{/account/edit/{accountId}(accountId=${account.id})}">Edit</a></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div th:replace="fragments/footer :: footer"/>
+
+</body>
+</html>
