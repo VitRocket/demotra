@@ -15,13 +15,15 @@
 
         <form th:action="@{/account/edit}" th:object="${accountForm}" method="POST">
             ID:
-            <input type="text" data-th-value="*{id}" data-th-field="*{id}" /></td>
+            <input type="text" th:field="*{id}"/>
             <br>
             Name:
             <input type="text" th:field="*{name}"/>
             <br/>
             Email:
             <input type="text" th:field="*{email}"/>
+            <br/>
+            <input type="hidden" th:field="*{version}"/>
             <br/>
             <input type="submit" value="Save"/>
         </form>
@@ -30,8 +32,7 @@
 
         <!-- Check if errorMessage is not null and not empty -->
 
-        <div th:if="${errorMessage}" th:utext="${errorMessage}"
-             style="color:red;font-style:italic;">
+        <div th:if="${errorMessage}" th:utext="${errorMessage}" style="color:red;font-style:italic;">
             ...
         </div>
 

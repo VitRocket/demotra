@@ -8,9 +8,13 @@ public interface AccountService {
 
     List<Account> getAllAccounts();
 
-    Account addAccount(Account account);
+    Account addAccount(Account account) throws Exception;
 
     void deleteAccount(Integer id);
 
     Account getAccount(Integer id);
+
+    String getInfo();
+
+    void save(Account account) throws Exception;
 }
